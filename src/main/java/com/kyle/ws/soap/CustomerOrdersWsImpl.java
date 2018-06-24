@@ -25,18 +25,22 @@ public class CustomerOrdersWsImpl implements CustomerOrdersPortType {
 	}
 	
 	public void init() {
+		//Create list of orders
 		List<Order> orders = new ArrayList<>();
 		Order order = new Order();
 		order.setId(BigInteger.valueOf(1));
 		
+		//Instantiate a Product
 		Product product = new Product();
 		product.setId("1");
 		product.setDescription("iPhone7");
 		product.setQuantity(BigInteger.valueOf(3));
 		order.getProduct().add(product);
 		
+		//Add Order to the list of order
 		orders.add(order);
 		
+		//Add list of orders and CustomerID to the HashMap
 		customerOrders.put(BigInteger.valueOf(++currentId), orders);
 	}
 
